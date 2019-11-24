@@ -10,7 +10,7 @@ env:
 
 before_install:
   - pip install hererocks
-  - hererocks lua_install -r^ --$LUA --luarocks=3.2
+  - hererocks lua_install -r^ --$LUA --luarocks=latest
   - export PATH=$PATH:$PWD/lua_install/bin # Add directory with all installed binaries to PATH
 
 install:
