@@ -10,12 +10,12 @@ env:
 
 before_install:
   - pip install hererocks
-  - hererocks lua_install --luarocks=3.2.1 --$LUA
+  - hererocks lua_install -r^ --$LUA
   - export PATH=$PATH:$PWD/lua_install/bin # Add directory with all installed binaries to PATH
 
 install:
-  - make install
+  - luarocks install luacheck
 
 script:
-  - make lint
-  - make test
+  - luacheck src
+  - lua **/*.test.lua
