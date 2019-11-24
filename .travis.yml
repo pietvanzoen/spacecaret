@@ -1,12 +1,19 @@
-language: erlang
+language: python                # Lua!
+sudo: false
 
 env:
-  - LUA=""
+  - LUA="lua=5.1"
+  - LUA="lua=5.2"
+  - LUA="lua=5.3"
   - LUA="luajit"
+  - LUA="luajit=2.1"
+
+before_install:
+  - pip install hererocks
+  - hererocks lua_install -r^ --$LUA
+  - export PATH=$PATH:$PWD/lua_install/bin # Add directory with all installed binaries to PATH
 
 install:
-  - sudo apt-get install luajit
-  - sudo apt-get install luarocks
   - make install
 
 script:
