@@ -10,3 +10,6 @@ lint:
 release:
 	rm -rf releases
 	love-release -M
+
+test:
+	lua **/*.test.lua
