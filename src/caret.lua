@@ -1,3 +1,5 @@
+local util = require('src/util')
+
 local Caret = {
   width = 10,
   height = 10,
@@ -5,6 +7,13 @@ local Caret = {
   speed = 2,
   x = 0,
   y = 0,
+}
+
+local angles = {
+  right = util.radiansFromDegrees(90),
+  left = util.radiansFromDegrees(270),
+  up = util.radiansFromDegrees(0),
+  down = util.radiansFromDegrees(180)
 }
 
 function Caret:new(options)
@@ -24,19 +33,19 @@ function Caret:points()
 end
 
 function Caret:moveRight()
-  self.angle = 1.57
+  self.angle = angles.right
   self.x = self.x + self.speed
 end
 function Caret:moveLeft()
-  self.angle = 4.71
+  self.angle = angles.left
   self.x = self.x - self.speed
 end
 function Caret:moveUp()
-  self.angle = 0
+  self.angle = angles.up
   self.y = self.y - self.speed
 end
 function Caret:moveDown()
-  self.angle = 3.14
+  self.angle = angles.down
   self.y = self.y + self.speed
 end
 
