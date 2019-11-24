@@ -3,8 +3,19 @@ local Caret = require('src/caret')
 
 local caret, caretCanvas
 
+local CARET_WIDTH = 20
+local CARET_HEIGHT = 30
+local CARET_SPEED = 4
+
 function love.load()
-  caret = Caret:new()
+  love.window.setTitle('SpaceCaret');
+  caret = Caret:new({
+    width = CARET_WIDTH,
+    height = CARET_HEIGHT,
+    speed = CARET_SPEED,
+    x = (love.graphics.getWidth() / 2) - (CARET_WIDTH / 2),
+    y = (love.graphics.getHeight() / 2) - (CARET_HEIGHT / 2)
+  })
   caretCanvas = love.graphics.newCanvas(caret.width, caret.height)
   love.graphics.setCanvas(caretCanvas)
   love.graphics.clear()

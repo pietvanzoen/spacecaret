@@ -13,3 +13,6 @@ release:
 
 test:
 	lua **/*.test.lua
+
+run:
+	love .

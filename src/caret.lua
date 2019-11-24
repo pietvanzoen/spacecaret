@@ -7,8 +7,8 @@ local Caret = {
   y = 0,
 }
 
-function Caret:new()
-  local newObj = { }
+function Caret:new(options)
+  local newObj = options or { }
   self.__index = self
   return setmetatable(newObj, self)
 end
